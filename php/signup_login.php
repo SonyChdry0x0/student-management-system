@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'config.php';
+include '../config.php';
 
 
 $conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME, $DB_PORT);
@@ -76,5 +76,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 }
 
 $conn->close();
-include("signup_login.html");
+include("../signup_login.html");
 ?>

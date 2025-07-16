@@ -7,6 +7,6 @@ session_unset();
 session_destroy();
 
 // Redirect to the login page after logout
-header("Location: signup_login.php");  // Replace 'login.php' with your actual login page
+header("Location:signup_login.php");  // Replace 'login.php' with your actual login page
 exit();
 ?>

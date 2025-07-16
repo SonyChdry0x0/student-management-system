@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone_number = $_POST['phone_number'];
     $date_of_admission = $_POST['date_of_admission'];
 
-    include 'config.php';
+    include '../config.php';
     $conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME, $DB_PORT);
   
     if ($conn->connect_error) {
@@ -27,5 +27,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conn->close();
 }
 
-include('add_student.html');
+include('../add_student.html');
 ?>
