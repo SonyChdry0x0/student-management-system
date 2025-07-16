@@ -1,5 +1,5 @@
 function logout() {
-            window.location.href = "logout.php";
+            window.location.href = "php/logout.php";
         }
 function toggleFeatures() {
     const features = document.getElementById('moreFeatures');

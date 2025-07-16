@@ -14,13 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_attendance']))
     if (!$course_filter || !$date_of_attendance) {
         $success_message = "<p style='color:red;'>Please select both course and date.</p>";
     } else {
-        // Delete existing attendance for this course and date to avoid duplicates
+       
         $conn->query("DELETE a FROM attendance a
                       JOIN students s ON a.roll_no = s.roll_no
                       WHERE s.course = '" . $conn->real_escape_string($course_filter) . "'
                       AND a.date_of_attendance = '" . $conn->real_escape_string($date_of_attendance) . "'");
 
-        // Fetch all students of this course
+        
         $stmt_students = $conn->prepare("SELECT roll_no, name FROM students WHERE course = ?");
         $stmt_students->bind_param("s", $course_filter);
         $stmt_students->execute();
