@@ -1,0 +1,196 @@
+body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgb(171, 207, 245);
+            color: #333;
+            text-align: center;
+        }
+
+        .header {
+            background: linear-gradient(to right, rgb(87, 161, 239), rgb(119, 177, 239));
+            color: #fff;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: 500;
+            box-shadow:
+                0 8px 15px rgba(0, 0, 0, 0.3),
+                inset 0 -4px 10px rgba(255, 255, 255, 0.2);
+            position: relative;
+            user-select: none;
+        }
+
+        .logout-btn {
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logout-btn:hover {
+            background-color: rgb(193, 134, 140);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+        }
+
+  .btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 90px;
+    margin-top:40px;
+  }
+
+  /* 3D Buttons */
+  .btn {
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(145deg, #7db9e8, #4786d4);
+    border-radius: 25px;
+    color: #e8f0fe;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow:
+      7px 7px 15px #325a91,
+      -7px -7px 20px #9ac5ff,
+      inset 0 0 12px #6799ff;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    user-select: none;
+  }
+  .btn i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.4));
+  }
+  .btn:hover {
+    background: linear-gradient(145deg, #91c4ff, #2d71d4);
+    box-shadow:
+      3px 3px 10px #264a84,
+      -3px -3px 15px #a7c7ff,
+      inset 0 0 20px #84a9ff;
+    transform: scale(1.1) translateY(-8px);
+  }
+
+        .about-section {
+            background-color: rgb(130, 187, 248);
+            padding: 40px 30px;
+            margin: 30px auto;
+            width: 85%;
+            border-radius: 50px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-section h2 {
+            color: #333;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: black;
+        }
+        .more-btn {
+    background: linear-gradient(145deg, #4786d4, #7db9e8);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    font-size:large;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow:
+      5px 5px 10px #325a91,
+      -5px -5px 10px #9ac5ff,
+      inset 0 0 12px #6799ff;
+    transition: all 0.3s ease;
+    margin: 20px 0;
+    user-select: none;
+  }
+  .more-btn:hover {
+    background: linear-gradient(145deg, #2d71d4, #91c4ff);
+    box-shadow:
+      2px 2px 6px #264a84,
+      -2px -2px 6px #a7c7ff,
+      inset 0 0 20px #84a9ff;
+    transform: scale(1.05);
+  }
+  /* Animate the appearing of the features */
+  .more-features {
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #222;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-top: 10px;
+  }
+  .more-features ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+
+        .footer {
+            margin-top: 80px;
+            padding: 20px;
+            background: linear-gradient(to right, rgb(80, 115, 152), rgb(119, 177, 239));
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .btn {
+                width: 140px;
+                height: 140px;
+                font-size: 14px;
+            }
+
+            .logout-btn {
+                top: 15px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                width: 120px;
+                height: 120px;
+                font-size: 12px;
+            }
+
+            .about-section {
+                width: 90%;
+                padding: 30px 15px;
+            }
+
+            .logout-btn {
+                font-size: 14px;
+                padding: 10px 14px;
+            }
+        }

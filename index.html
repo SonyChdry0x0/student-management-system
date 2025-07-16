@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <meta name="description" content="Manage students and attendance efficiently with our student management system. Add, view, and track student data easily." />
+    <meta name="keywords" content="student management, attendance, add student, view student, educational system" />
+    <meta name="author" content="Your Name or Organization" />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+    <div class="header">
+        Student Management System
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="btn-container">
+        <a href="add_student.php" class="btn"><i class="fa fa-user-plus"></i>Add Student</a>
+        <a href="view_student.php" class="btn"><i class="fa fa-users"></i>View Students</a>
+        <a href="add_attendance.php" class="btn"><i class="fa fa-check-square"></i>Add Attendance</a>
+        <a href="view_attendance.php" class="btn"><i class="fa fa-calendar-check"></i>View Attendance</a>
+    </div>
+
+    <div class="about-section">
+  <h2>About This System</h2>
+  <p>The Student Management System is designed to help educational institutions manage students and attendance efficiently. It allows you to easily add, view, and monitor student data across different courses.</p>
+  
+  <p>Administrators can use this tool to maintain accurate records, ensure transparency, and streamline daily academic tasks.</p>
+  
+  <button id="moreBtn" class="more-btn" onclick="toggleFeatures()">More▼</button>
+  
+  <div id="moreFeatures" class="more-features" style="display: none;">
+    <ul>
+      <li><strong>Effortless Student Management:</strong> Add, update, and organize detailed student profiles with personal and academic information in one centralized system.</li>
+      <li><strong>Accurate Attendance Tracking:</strong> Record daily attendance efficiently with easy marking, monitoring, and generating attendance reports.</li>
+      <li><strong>Secure Access Control:</strong> Role-based access ensures only authorized personnel can view or modify sensitive student and attendance data.</li>
+      <li><strong>Data Integrity and Backup:</strong> Reliable database management with regular backups to prevent data loss and ensure consistency.</li>
+      <li><strong>User-Friendly Interface:</strong> Intuitive and responsive design enabling smooth navigation on desktops, tablets, and mobile devices.</li>
+      <li><strong>Custom Reports and Analytics:</strong> Generate attendance summaries and student reports to analyze performance trends and support administrative decisions.</li>
+      <li><strong>Scalable and Extensible:</strong> Designed to grow with your institution, allowing easy addition of new features or integration with other systems.</li>
+    </ul>
+    <p>With this system, administrators and educators can save valuable time, improve record accuracy, and foster better communication across departments. The Student Management System is your reliable partner for efficient academic administration.</p>
+  </div>
+</div>
+    <div class="footer">
+        &copy; 2025 Student Management System. All rights reserved.
+        <br />
+        <a href="contact.html">Contact Us</a> |
+        <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+ <script src="script.js"></script>
+</body>
+</html>

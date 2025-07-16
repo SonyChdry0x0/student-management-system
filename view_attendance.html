@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Attendance List</title>
+  <link rel="stylesheet" href="view_attendance_style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+<header>
+  <h1>Attendance List</h1>
+  <a href="index.html" class="home-btn">Home</a>
+</header>
+
+<div class="container">
+
+  <?php if (isset($_SESSION['message'])): ?>
+    <div id="message-box" role="alert">
+      <?= htmlspecialchars($_SESSION['message']) ?>
+    </div>
+    <?php unset($_SESSION['message']); ?>
+  <?php endif; ?>
+
+  <form method="POST" action="view_attendance.php">
+    <label>Course:</label>
+    <select name="course">
+      <option value="">--All Courses--</option>
+      <?php foreach ($courses as $row): ?>
+        <option value="<?= htmlspecialchars($row['course']) ?>" <?= ($row['course'] == $course_filter) ? 'selected' : '' ?>>
+          <?= htmlspecialchars($row['course']) ?>
+        </option>
+      <?php endforeach; ?>
+    </select>
+
+    <label>Date:</label>
+    <input type="date" name="filter_date" value="<?= htmlspecialchars($date_filter) ?>" />
+
+    <input type="submit" value="Filter" />
+    <input type="submit" name="download_attendance" value="Download CSV" style="background:#28a745; color:white;" />
+  </form>
+
+  <form method="POST" action="view_attendance.php" id="deleteForm">
+    <table>
+      <thead>
+        <tr>
+          <th><input type="checkbox" id="select-all" /></th>
+          <th>Roll No</th>
+          <th>Name</th>
+          <th>Course</th>
+          <th>Status</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php if (!empty($attendance)): ?>
+          <?php foreach ($attendance as $row): ?>
+            <tr>
+              <td><input type="checkbox" name="selected[]" value="<?= htmlspecialchars($row['roll_no'] . '|' . $row['date_of_attendance']) ?>" /></td>
+              <td><?= htmlspecialchars($row['roll_no']) ?></td>
+              <td><?= htmlspecialchars($row['name']) ?></td>
+              <td><?= htmlspecialchars($row['course']) ?></td>
+              <td><?= htmlspecialchars($row['status']) ?></td>
+              <td><?= htmlspecialchars($row['date_of_attendance']) ?></td>
+            </tr>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <tr><td colspan="6" style="text-align:center;">No attendance records found.</td></tr>
+        <?php endif; ?>
+      </tbody>
+    </table>
+
+    <div style="text-align:center; margin-top:20px;">
+      <input type="submit" name="delete_attendance" value="Delete Selected Attendance" class="delete-btn" style="background:#dc3545; color:white; cursor:pointer;" />
+    </div>
+  </form>
+</div>
+
+<script src="view_attendance_script.js"></script>
+</body>
+</html>

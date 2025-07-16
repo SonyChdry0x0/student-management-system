@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Attendance</title>
+    <link rel="stylesheet" href="attendance_style.css">
+</head>
+<body>
+<div class="header">
+    <span>Add Attendance</span>
+    <a href="index.html" class="home-btn">Home</a>
+</div>
+
+<div class="container">
+    <form method="POST" action="">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="course">Select Course:</label>
+                <select name="course" id="course" onchange="this.form.submit()" required>
+                    <option value="">--Select Course--</option>
+                    <?php while ($course_row = $courses_result->fetch_assoc()) { ?>
+                        <option value="<?= $course_row['course'] ?>" <?= ($course_filter == $course_row['course']) ? 'selected' : '' ?>>
+                            <?= $course_row['course'] ?>
+                        </option>
+                    <?php } ?>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date_of_attendance">Date:</label>
+                <input type="date" name="date_of_attendance" id="date_of_attendance" required>
+            </div>
+        </div>
+
+        <?php if ($students && $students->num_rows > 0) { ?>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Roll No</th>
+                        <th>Name</th>
+                        <th>Attendance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php while ($row = $students->fetch_assoc()) { ?>
+                    <tr>
+                        <td><?= $row['roll_no'] ?></td>
+                        <td><?= $row['name'] ?></td>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="attendance[<?= $row['roll_no'] ?>]" value="Present/Absent"> Present/Absent
+                            </label>
+                        </td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+        </div>
+        <input type="submit" name="submit_attendance" value="Submit Attendance">
+        <?php } elseif ($course_filter) { ?>
+            <p>No students found for selected course.</p>
+        <?php } ?>
+    </form>
+    <?= $success_message ?>
+</div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>View Students</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .home-btn {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .filter-form, .action-buttons {
+            margin-bottom: 20px;
+        }
+
+        select, input[type="submit"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .btn-delete {
+            background-color: #d32f2f;
+            color: white;
+            cursor: pointer;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .btn-delete:hover {
+            background-color: #c62828;
+        }
+
+        .btn-download {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-download:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Student List</h1>
+    <a href="index.html" class="home-btn">Home</a>
+</header>
+
+<div class="container">
+   
+    <form class="filter-form" method="POST" action="view_student.php">
+        <label for="course">Filter by Course:</label>
+        <select name="course" id="course" onchange="this.form.submit()">
+            <option value="">--All Courses--</option>
+            <?php
+            $courses_result->data_seek(0); // Reset pointer
+            while ($row = $courses_result->fetch_assoc()) {
+                $selected = ($row['course'] == $course_filter) ? 'selected' : '';
+                echo "<option value='{$row['course']}' $selected>{$row['course']}</option>";
+            }
+            ?>
+        </select>
+        <input type="submit" name="download_csv" value="Download CSV" class="btn-download">
+    </form>
+
+   
+    <form method="POST" action="view_student.php" onsubmit="return confirm('Are you sure you want to delete selected students?');">
+        <input type="hidden" name="course" value="<?= htmlspecialchars($course_filter) ?>">
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" onclick="toggleAll(this)"></th>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Course</th>
+                    <th>Phone Number</th>
+                    <th>Date of Admission</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                        <td><input type='checkbox' name='selected_rolls[]' value='{$row['roll_no']}'></td>
+                        <td>{$row['roll_no']}</td>
+                        <td>{$row['name']}</td>
+                        <td>{$row['course']}</td>
+                        <td>{$row['phone_number']}</td>
+
+                        <td>{$row['date_of_admission']}</td>
+                    </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='5'>No students found.</td></tr>";
+            }
+            ?>
+            </tbody>
+        </table>
+
+        <div class="action-buttons" style="text-align:center;">
+            <input type="submit" name="delete_selected" value="Delete Selected Students" class="btn-delete">
+        </div>
+    </form>
+</div>
+
+<script>
+function toggleAll(source) {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"][name="selected_rolls[]"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = source.checked;
+    });
+}
+</script>
+</body>
+</html>

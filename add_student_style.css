@@ -1,0 +1,129 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: rgb(195, 215, 237);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 80px;
+}
+
+.container:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+input {
+    margin: 12px 0;
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border: 1px solid #3498db;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.4);
+}
+
+input[type="submit"] {
+    background-color: rgb(44, 18, 213);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 18px 35px;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(100, 104, 188);
+}
+
+input[type="submit"]:focus {
+    outline: none;
+}
+
+.success-message {
+    font-size: 18px;
+    color: #067032;
+    animation: fadeIn 2s ease-out forwards;
+    margin-top: 20px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    background: linear-gradient(to right, rgb(137, 181, 228), rgb(120, 168, 220));
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.header .back-btn {
+    background-color: rgb(221, 16, 50);
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 20px;
+    transition: background-color 0.3s;
+}
+
+.header .back-btn:hover {
+    background-color: rgb(207, 143, 175);
+}
