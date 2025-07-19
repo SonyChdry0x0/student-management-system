@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         if (password_verify($password, $db_password)) {
             $_SESSION['user_id'] = $user_id;
             $_SESSION['user_name'] = $db_username;
-            header("Location: /student_management/index.html");
+            header("Location:../index.html");
             exit();
         } else {
             $error_message = "❌ Invalid username or password!";
