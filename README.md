@@ -4,7 +4,6 @@ This Student Management System is a simple, web-based application designed to he
 
 The system includes essential features such as adding new students with details like roll number, name, and course enrollment. Users can view the student list with options to filter by course, delete multiple student records, and download the list in CSV format for offline use. For attendance management, the system allows selecting a course and marking each student as present or absent using checkboxes, ensuring accurate and straightforward attendance tracking. Attendance records can also be viewed and exported with filtering options for convenience.
 
-The project uses core web technologies: HTML, CSS, and JavaScript for the frontend, and MySQL for the backend database. This makes it lightweight and easy to deploy on local or remote web servers such as XAMPP or WAMP. Configuration of database connection settings is straightforward, enabling quick setup and integration.
 
 ## Installation
 
@@ -32,7 +31,7 @@ The project uses core web technologies: HTML, CSS, and JavaScript for the fronte
 
 - HTML, CSS, JavaScript  
 - MySQL  
-- Backend language (e.g., PHP) *(Adjust as per your project)*
+- Backend language (e.g., PHP) 
 
 ## License
 
